@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class ResultItem extends Component {
-    render() {
-        return (
-        <li className="list-group-item">
+const ResultItem = props => {
+
+    const { title, img, id, action } = props;
+
+    return (
+    <li className="list-group-item" id={id} onClick={action} >
+        <div className="video-list media">
             <div className="video-list media">
-                <div className="video-list media">
-                    <div className="media-left">
-                        <img className="media-object" src="https://randomuser.me/api/portraits/thumb/men/7.jpg" />
-                    </div>
-                </div>
-                <div className="media-body">
-                    <div className="media-heading">SOME VIDEO</div>
+                <div className="media-left">
+                    <img className="media-object" src={img} alt="" />
                 </div>
             </div>
-        </li>
+            <div className="media-body">
+                <div className="media-heading">{title}</div>
+            </div>
+        </div>
+    </li>
 
-        )
-    }
+    )
 };
 export default ResultItem;

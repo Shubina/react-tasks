@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ResultItem from './ResultItem.js';
 
-class Results extends Component {
-
-
-    render() {
-    	const { dataApi, chooseItem } = this.props;
+const Results = props => {
+   
+        const { dataApi } = props;
         return (
-            <ul>
-            	this.props.dataApi.map( (item, index) => {
-            	return (
-            		<ResultItem 
-            			title={item.snippet.title} 
-            			descr={item.snippet.description}
-            			img={item.snippet.thumbnails.default}
-            			onClick={chooseItem}
-    				 />
-        			)
-    			})
+            <ul className="col-md-4">
+                {dataApi.map( (elem, index) => {
+                    return (
+
+                    <ResultItem 
+                        key={ index }
+                        title={elem.snippet.title} 
+                        img={elem.snippet.thumbnails.default.url}
+                          
+                         id={ index }
+                     />
+                );
+                })}
             </ul>
-        )
-    }
+        );
+    
 };
+
+
 export default Results;
