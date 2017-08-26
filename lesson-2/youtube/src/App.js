@@ -63,9 +63,7 @@ class App extends Component {
     }
 
     chooseItem (e) {
-        console.log('ghj')
-        this.setState({itemId: e.target.id});
-        console.log(this.state.itemId);
+        this.setState({itemId: e.target.closest('li').id});
     }
 
     render() {
@@ -73,8 +71,6 @@ class App extends Component {
             return <div>Loading...</div>;
         }
 
-
-        console.log (this.state.data);
         return (
             <div className="App">
                 <main className="container">
@@ -83,12 +79,14 @@ class App extends Component {
                         action={this.handleSearch} />
                     <div className="row">
                         <Video dataApi={this.state.data} 
-                                id={this.state.itemId} />
+                                id={this.state.itemId} 
+                                onChange={this.chooseItem} />
                         <Results dataApi={this.state.data} 
                                     action={this.chooseItem}
                                 />
                     </div>
                 </main>
+                
             </div>
         );
     }

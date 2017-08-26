@@ -5,9 +5,8 @@ const Video = props => {
 
     const { dataApi, id } = props;
 
-    let srcVideo = `https://www.youtube.com/embed/${dataApi[0].id.videoId}`;
+    let srcVideo = `https://www.youtube.com/embed/${dataApi[id].id.videoId}`;
 
-console.log(id);
     return (
         <div className="video-detail col-md-8">
             <div className="embed-responsive embed-responsive-16by9">

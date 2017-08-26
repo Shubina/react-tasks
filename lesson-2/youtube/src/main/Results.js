@@ -3,7 +3,7 @@ import ResultItem from './ResultItem.js';
 
 const Results = props => {
    
-        const { dataApi } = props;
+        const { dataApi, action } = props;
         return (
             <ul className="col-md-4">
                 {dataApi.map( (elem, index) => {
@@ -13,7 +13,7 @@ const Results = props => {
                         key={ index }
                         title={elem.snippet.title} 
                         img={elem.snippet.thumbnails.default.url}
-                          
+                          action={ action}
                          id={ index }
                      />
                 );
