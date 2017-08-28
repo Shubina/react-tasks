@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
-
+import Api from '../../services/api';
 
 
 class SignIn extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			name: '',
-			password: ''
-		};
-		this.updateInputName = this.updateInputName.bind(this);
-	}
 
-	updateInputName(e) {
-		let propName = e.target.name;
-		this.setState({	[propName]: e.target.value })
-	}
 	
 render() {
-
-console.log(this.state);
+const { submit, formData } = this.props;
   return (
     <div>
-    	<form>
-    		<label htmlFor="nameInput">Name:</label>
-    		<input type="text" id="nameInput" name="name" onChange={this.updateInputName} />
+    	<form onSubmit={submit}>
+	    		<label htmlFor="nameInput">User Name:</label>
+	    		<input type="text" id="nameInput"  name="name" onChange={formData} />
 
-			<label htmlFor="passInput">Password:</label>
-    		<input type="password" id="passInput" name="password" onChange={this.updateInputName} />
+				<label htmlFor="passInput">Password:</label>
+	    		<input type="password" id="passInput"  name="password" onChange={formData} />
 
-    	</form>
+	    		<button>Sign up</button>
+
+	    	</form>
     </div>
   )
 };
